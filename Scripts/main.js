@@ -38,7 +38,7 @@ window.Main = {
       return;
     }
     
-    $("#new")
+    $("#Add")
       .button()
       .click(function() {
         var $box = self.createBox();
