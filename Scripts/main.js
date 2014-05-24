@@ -9,6 +9,15 @@
 // hey all... look here...
 // here is a live demo of this code: http://www.ellipsetours.com/Demos/storage/
 
+
+$(document).ready(function(){
+    $('.IncremBtn').click(function(){
+    	var clickedID = this.id;
+    	var MyValue = this.html;
+        this.html = MyValue+1;
+    });
+});
+
 // ----------
 $(document).ready(function () {
   Main.init();
@@ -20,6 +29,8 @@ window.Main = {
   offset: 0,
   $slider: null,
   $selectedBox: null, 
+  
+  
   
   // ----------
   init: function() {
@@ -81,6 +92,8 @@ window.Main = {
         }
       });
   },
+  
+  
   
   // ----------
   loadAll: function() {
