@@ -12,9 +12,11 @@
 
 $(document).ready(function(){
     $('.IncremBtn').click(function(){
-    	var clickedID = this.id;
-    	var MyValue = this.html;
-        this.html = MyValue+1;
+    	//var clickedID = this.id();
+    	var MyValue = parseInt($(this).html());
+        //$(this).Value() = MyValue+1;
+        //alert(this.id);
+        $(this).html(MyValue+1);
     });
 });
 
