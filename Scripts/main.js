@@ -6,6 +6,9 @@
 /// <reference path="Scripts/jquery.ui.touch-punch.min.js" />
 /// <reference path="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.0.6-development-only.js" />
 
+// hey all... look here...
+// here is a live demo of this code: http://www.ellipsetours.com/Demos/storage/
+
 // ----------
 $(document).ready(function () {
   Main.init();
