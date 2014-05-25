@@ -15,12 +15,13 @@ $(document).ready(function(){
     $('.IncremBtn').click(function(){
     	//var clickedID = this.id();
     	var MyValue = parseInt($(this).html());
+    	
     	//get current value and add one
         $(this).html(MyValue+1);
         //store data to local application cache
 	    
 	    var MyValues = Array();
-	    MyValues = getCounts;
+	    MyValues = getCounts();
 	    localStorage["MyData"] = JSON.stringify(MyValues);
 	    
 	    var storedNames = JSON.parse(localStorage["MyData"]);
@@ -39,10 +40,11 @@ function getCounts() {
 	
 	//loop through each button and get count
 	var MyValues = new Array(); //[];
-    
     for (var i = 1; i < 41; i++) {
-		MyValues[i]=i;
+		//alert(document.getElementById(i.toString()).innerHTML);
+		MyValues[i]=document.getElementById(i.toString()).innerHTML;
     }
+       
     return MyValues;
 }
 
