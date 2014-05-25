@@ -19,7 +19,21 @@
   <button id="clear">Clear</button>
  -->
   
-  <table>
+  
+  <form>
+SiteID: <input type="text" name="mysiteID"><br>
+Name: <input type="text" name="myname"><br>
+Date: <input type="date" name="mydate"><br>
+Start Time: <input type="time" name="mytime"><br>
+Location: <input type="text" name="mylocation"><br>
+Comments: <input type="text" name="mycomments"><br>
+<button id="newSite">New Site</button>
+</form>
+  
+  <br>
+  <br>
+  <div style="display:none">
+  <table id="myDataTable" >
   	<th><td>Vehicle Type</td><td>Yes</td><td>No</td><td>Unknown</td><td>Undo</td></th>
     <tr><td>PC Driver</td><td><button id="1" class="IncremBtn">0</button></td><td><button id="2" class="IncremBtn">0</button></td><td><button id="3" class="IncremBtn">0</button></td><td><button id="4" class="IncremBtn">0</button></td></tr>
     <tr><td>PU Driver</td><td><button id="5" class="IncremBtn">0</button></td><td><button id="6" class="IncremBtn">0</button></td><td><button id="7" class="IncremBtn">0</button></td><td><button id="8" class="IncremBtn">0</button></td></tr>
@@ -33,6 +47,7 @@
     <tr><td>Bike</td><td><button id="37" class="IncremBtn">0</button></td><td><button id="38" class="IncremBtn">0</button></td><td><button id="39" class="IncremBtn">0</button></td><td><button id="40" class="IncremBtn">0</button></td></tr>
    
     </table>
+  </div>
   
   <aside id="info">
     <p>Belt Prox 1.0</p>

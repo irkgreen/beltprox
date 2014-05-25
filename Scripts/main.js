@@ -48,6 +48,16 @@ function getCounts() {
     return MyValues;
 }
 
+function createNewSite() {
+   //this will create a new site ID to be used for all local storage
+   
+   //check user's form data
+   alert("yes");
+   
+   //unhide table
+   
+  }
+
 // ----------
 $(document).ready(function () {
   Main.init();
@@ -80,31 +90,11 @@ window.Main = {
       alert("This browser does not support JSON.");
       return;
     }
-    
-    
-  /*  
-    $("#Add")
+     $("#newSite")
       .button()
       .click(function() {
-        var $box = self.createBox();
-        self.saveBox($box);
+        createNewSite();
       });
-
-    $("#clear")
-      .button()
-      .click(function() {
-        self.clearAll();
-      });
-*/
-    $(window)
-      .bind("storage", function() {
-        setTimeout(function() { // this slight delay is necessary on IE
-          //self.loadAll();
-        }, 1);
-      });
-
-    //this.initDialog();
-    //this.loadAll();
   }, 
   
   
