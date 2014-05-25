@@ -10,11 +10,15 @@
 // here is a live demo of this code: http://www.ellipsetours.com/Demos/storage/
 
 
+//this function fires anytime the user clicks a button in the IncremBtn class
 $(document).ready(function(){
     $('.IncremBtn').click(function(){
     	//var clickedID = this.id();
     	var MyValue = parseInt($(this).html());
+    	//get current value and add one
         $(this).html(MyValue+1);
+        //store data to local application cache
+        
     });
 });
 
@@ -25,10 +29,10 @@ $(document).ready(function () {
 
 // ----------
 window.Main = {
-  nextBoxIndex: 0, 
-  offset: 0,
-  $slider: null,
-  $selectedBox: null, 
+  //nextBoxIndex: 0, 
+  //offset: 0,
+  //$slider: null,
+  //$selectedBox: null, 
   
   
   
@@ -51,6 +55,8 @@ window.Main = {
       return;
     }
     
+    
+  /*  
     $("#Add")
       .button()
       .click(function() {
@@ -63,16 +69,16 @@ window.Main = {
       .click(function() {
         self.clearAll();
       });
-
+*/
     $(window)
       .bind("storage", function() {
         setTimeout(function() { // this slight delay is necessary on IE
-          self.loadAll();
+          //self.loadAll();
         }, 1);
       });
 
-    this.initDialog();
-    this.loadAll();
+    //this.initDialog();
+    //this.loadAll();
   }, 
   
   // ----------

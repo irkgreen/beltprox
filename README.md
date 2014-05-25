@@ -10,3 +10,4 @@ Upload - grabs all currently cached data and emails it as csv
 Store data on button click to local storage
 
 figure out what to do with undo buttons (right now there is only one per row)
+-they are in the IncremBtn class too (might need to change)
