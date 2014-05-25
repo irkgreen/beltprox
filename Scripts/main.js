@@ -22,9 +22,9 @@ $(document).ready(function(){
 	    
 	    var MyValues = Array();
 	    MyValues = getCounts();
-	    localStorage["MyData"] = JSON.stringify(MyValues);
+	    localStorage[getID()] = JSON.stringify(MyValues);
 	    
-	    var storedNames = JSON.parse(localStorage["MyData"]);
+	    //var storedNames = JSON.parse(localStorage[getID()]);
 	    //alert(storedNames);
 	    
 	    //localStorage[$box.attr("id")] = JSON.stringify(getCounts);
@@ -37,10 +37,10 @@ function saveSite(){
 
 	    var MyValues = Array();
 	    MyValues = getCounts();
-	    localStorage["MyData"] = JSON.stringify(MyValues);    
+	    localStorage[getID()] = JSON.stringify(MyValues);    
 	    
-	   	var storedNames = JSON.parse(localStorage["MyData"]);
-	    alert(storedNames);
+	   	//var storedNames = JSON.parse(localStorage[getID()]);
+	    //alert(storedNames);
     
 }
 
@@ -50,7 +50,7 @@ function getCounts() {
 	var MyValues = new Array();
 		  
 	//add site info too
-	MyValues[0] = getID();
+	MyValues[0] = "ver 1.0";
 	
 	//loop through each button and get count
 	
