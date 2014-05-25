@@ -101,6 +101,12 @@ function createNewSite() {
 		  	
 */
 
+	//clear all data
+    for (var i = 1; i < 41; i++) {
+		//alert(document.getElementById(i.toString()).innerHTML);
+		document.getElementById(i.toString()).innerHTML=0;
+    }
+
   	//set date and time to now
   	var today = new Date();
   	document.forms["Site"]["mydate"].value = today;
@@ -131,7 +137,10 @@ function stopData() {
 
 // ----------
 $(document).ready(function () {
-var self = this;
+
+//this only fires on load
+
+	var self = this;
     
     if (!Modernizr.localstorage) {
       alert("This browser does not support local storage.");
@@ -162,4 +171,17 @@ var self = this;
       .click(function() {
         saveSite();
       });
+      //load any previous data into listbox for review and edit
+      for (var i = 0; i < localStorage.length; i++){
+  	        // Create an Option object
+	        var opt = document.createElement("option");
+    		// Assign text and value to Option object
+    		opt.text = localStorage.key(i);
+    		//opt.value = Value;
+      		// Add an Option object to Drop Down/List Box
+    		document.getElementById("previousData").options.add(opt);
+			//alert(localStorage.getItem(localStorage.key(i)));
+	 	}
 });
+
+
