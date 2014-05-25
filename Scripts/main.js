@@ -64,7 +64,18 @@ function createNewSite() {
   		alert("Name must be filled out!");
   		return false;
   	}
-  
+   x=document.forms["Site"]["mydate"].value;
+	if (x==null || x=="")
+  	{
+  		alert("Date must be filled out!");
+  		return false;
+  	}  
+  	x=document.forms["Site"]["mytime"].value;
+	if (x==null || x=="")
+  	{
+  		alert("Time must be filled out!");
+  		return false;
+  	}
    //unhide table
    document.querySelector('#datatable').style.display = 'table';
    
