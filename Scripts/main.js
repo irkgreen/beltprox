@@ -52,9 +52,23 @@ function createNewSite() {
    //this will create a new site ID to be used for all local storage
    
    //check user's form data
-   alert("yes");
-   
+   var x=document.forms["Site"]["mysiteID"].value;
+	if (x==null || x=="")
+  	{
+  		alert("Site ID must be filled out!");
+  		return false;
+  	}
+   x=document.forms["Site"]["myname"].value;
+	if (x==null || x=="")
+  	{
+  		alert("Name must be filled out!");
+  		return false;
+  	}
+  
    //unhide table
+   document.querySelector('#datatable').style.display = 'table';
+   
+   return True;
    
   }
 
