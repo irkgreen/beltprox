@@ -18,9 +18,33 @@ $(document).ready(function(){
     	//get current value and add one
         $(this).html(MyValue+1);
         //store data to local application cache
-        
+	    
+	    var MyValues = Array();
+	    MyValues = getCounts;
+	    localStorage["MyData"] = JSON.stringify(MyValues);
+	    
+	    var storedNames = JSON.parse(localStorage["MyData"]);
+	    alert(storedNames);
+	    
+	    //localStorage[$box.attr("id")] = JSON.stringify(getCounts);
+	    
     });
 });
+
+
+function getCounts() {
+	//this will store all data into an array
+		  
+	//add site info too
+	
+	//loop through each button and get count
+	var MyValues = new Array(); //[];
+    
+    for (var i = 1; i < 41; i++) {
+		MyValues[i]=i;
+    }
+    return MyValues;
+}
 
 // ----------
 $(document).ready(function () {
@@ -80,6 +104,8 @@ window.Main = {
     //this.initDialog();
     //this.loadAll();
   }, 
+  
+  
   
   // ----------
   initDialog: function() {
