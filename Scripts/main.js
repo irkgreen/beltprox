@@ -48,10 +48,9 @@ function editSite(){
 //this function saves the site in the event the user changes main form values
 
       	//load previous session and show table
-      	var e = document.getElementById("previousData");
-	  	var strKey = e.options[e.selectedIndex].text;
-	  	alert(strKey);
-   		var storedData = JSON.parse(localStorage.key(strKey.trim()));
+      	var strKey = $('#previousData option:selected').val();
+        var strValue = localStorage.getItem(strKey);
+        var storedData = JSON.parse(strValue);
 	    
 	 	for (var i = 1; i < 41; i++) {
 		//alert(document.getElementById(i.toString()).innerHTML);

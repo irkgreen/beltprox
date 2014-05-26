@@ -24,3 +24,7 @@ create a list of sites already saved to the device.  have a button to open its d
 add note to comments if user edits or stops early - uneditable?
 
 figure out how to use my own JS refs (not from ajax.aspnetcdn.com)
+
+consider switching completely to jquery
+
+consider using json mappings instead of CSV
