@@ -28,3 +28,7 @@ figure out how to use my own JS refs (not from ajax.aspnetcdn.com)
 consider switching completely to jquery
 
 consider using json mappings instead of CSV
+
+warn if increment becomes negative?
+
+not sure how to remove old site from the dropdown if the user svaes site
