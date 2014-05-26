@@ -47,27 +47,23 @@ function saveSite(){
 function editSite(){
 //this function saves the site in the event the user changes main form values
 
-      //load any previous data into listbox for review and edit
-      for (var i = 0; i < localStorage.length; i++){
-  	        // Create an Option object
-	        var opt = document.createElement("option");
-    		// Assign text and value to Option object
-    		opt.text = localStorage.key(i);
-    		//opt.value = Value;
-      		// Add an Option object to Drop Down/List Box
-    		document.getElementById("previousData").options.add(opt);
-			//alert(localStorage.getItem(localStorage.key(i)));
-	 	}
-
-	    var MyValues = Array();
-	    MyValues = getCounts();
-	    localStorage[getID()] = JSON.stringify(MyValues);    
+      	//load previous session and show table
+      	var e = document.getElementById("previousData");
+	  	var strKey = e.options[e.selectedIndex].text;
+	  	alert(strKey);
+   		var storedData = JSON.parse(localStorage.key(strKey.trim()));
 	    
-	   	//var storedNames = JSON.parse(localStorage[getID()]);
+	 	for (var i = 1; i < 41; i++) {
+		//alert(document.getElementById(i.toString()).innerHTML);
+		document.getElementById(i.toString()).innerHTML = storedData[i];
+    	}
+	    
+	    //unhide table
+	   document.querySelector('#datatable').style.display = 'table';
+	   document.querySelector('#Site').style.display = 'none';
 	    //alert(storedNames);
     
 }
-
 
 function getCounts() {
 	//this will store all data into an array

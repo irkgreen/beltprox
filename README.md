@@ -21,3 +21,5 @@ check for “QUOTA_EXCEEDED_ERR”
 There is a SQLLite version of localstorage but I am unsure of its support
 
 create a list of sites already saved to the device.  have a button to open its data up in the data collector
+
+add note to comments if user edits?
