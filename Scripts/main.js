@@ -32,6 +32,20 @@ $(document).ready(function(){
     });
 });
 
+function loadSites(){
+	      //load any previous data into listbox for review and edit
+      for (var i = 0; i < localStorage.length; i++){
+  	        // Create an Option object
+	        var opt = document.createElement("option");
+    		// Assign text and value to Option object
+    		opt.text = localStorage.key(i);
+    		//opt.value = Value;
+      		// Add an Option object to Drop Down/List Box
+    		document.getElementById("previousData").options.add(opt);
+			//alert(localStorage.getItem(localStorage.key(i)));
+	 	}
+}
+
 function saveSite(){
 //this function saves the site in the event the user changes main form values
 
@@ -41,7 +55,7 @@ function saveSite(){
 	    
 	   	//var storedNames = JSON.parse(localStorage[getID()]);
 	    //alert(storedNames);
-    
+    	location.reload();
 }
 
 function editSite(){
@@ -52,18 +66,36 @@ function editSite(){
         var strValue = localStorage.getItem(strKey);
         var storedData = JSON.parse(strValue);
 	    
+	    //populate count data
 	 	for (var i = 1; i < 41; i++) {
 		//alert(document.getElementById(i.toString()).innerHTML);
 		document.getElementById(i.toString()).innerHTML = storedData[i];
     	}
 	    
-	    //unhide table
+	    //populate site data
+	    document.forms["Site"]["mysiteID"].value = storedData[41];
+    	document.forms["Site"]["myname"].value = storedData[42];
+	    document.forms["Site"]["mylocation"].value = storedData[43];
+	    document.forms["Site"]["mycomments"].value = storedData[44];
+	    document.forms["Site"]["mydate"].value = storedData[45];
+	    document.forms["Site"]["myend"].value = storedData[46];
+	    
+	    //unhide table/hide site data
 	   document.querySelector('#datatable').style.display = 'table';
 	   document.querySelector('#Site').style.display = 'none';
 	    //alert(storedNames);
     
 }
 
+function removeSite(){
+//this function saves the site in the event the user changes main form values
+
+      	//load previous session and show table
+      	var strKey = $('#previousData option:selected').val();
+        var strValue = localStorage.removeItem(strKey);
+        
+        location.reload();
+}
 function getCounts() {
 	//this will store all data into an array
 	var MyValues = new Array();
@@ -102,8 +134,6 @@ function createNewSite() {
 /* commented out for debugging
  
    		//check user's form data
-		if (1=2) { //skip for testing
-
    		
 	   		var x=document.forms["Site"]["mysiteID"].value;
 			if (x==null || x=="")
@@ -152,6 +182,8 @@ function stopData() {
    document.querySelector('#datatable').style.display = 'none';
    document.querySelector('#Site').style.display = 'block';
    
+   location.reload();
+   
   }
 
 // ----------
@@ -195,17 +227,12 @@ $(document).ready(function () {
       .click(function() {
         editSite();
       });
-      //load any previous data into listbox for review and edit
-      for (var i = 0; i < localStorage.length; i++){
-  	        // Create an Option object
-	        var opt = document.createElement("option");
-    		// Assign text and value to Option object
-    		opt.text = localStorage.key(i);
-    		//opt.value = Value;
-      		// Add an Option object to Drop Down/List Box
-    		document.getElementById("previousData").options.add(opt);
-			//alert(localStorage.getItem(localStorage.key(i)));
-	 	}
+     $("#removeSite")
+      .button()
+      .click(function() {
+        removeSite();
+      });
+	loadSites();
 });
 
 
