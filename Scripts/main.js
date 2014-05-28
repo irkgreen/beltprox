@@ -9,7 +9,6 @@
 // hey all... look here...
 // here is a live demo of this code: http://www.ellipsetours.com/Demos/storage/
 
-
 $(document).ready(function(){
 	//this fires on load or when a button is pressed
 
@@ -26,12 +25,7 @@ $(document).ready(function(){
       alert("This browser does not support local storage.");
       return;
     }
-    
-    if (!Modernizr.hsla) {
-      alert("This browser does not support hsl.");
-      return;
-    }
-    
+  
     if (!window.JSON) {
       alert("This browser does not support JSON.");
       return;

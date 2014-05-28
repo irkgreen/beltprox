@@ -20,12 +20,18 @@ add note to comments if user edits or stops early or edits a database - make une
 
 figure out how to use my own JS refs (not from ajax.aspnetcdn.com)
 
-consider switching completely to jquery
+consider switching completely to jquery (need to use name or change name to ID to use #123)
 
 consider using json mappings instead of CSV
 
 warn if increment becomes negative?
 
-not sure how to remove old site from the dropdown if the user svaes site
+not sure how to remove old site from the dropdown if the user saves site
 
 clean up, make buttons bigger, line up titles and driver, passenger etc.
+
+make sound on click
+
+form not populating on edit on iOS
+
+what if you close before save?
