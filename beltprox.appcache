@@ -1,3 +1,6 @@
 CACHE MANIFEST
 /style.css
 /Scripts/main.js
+/Scripts/jquery-1.7.2.min.js
+/Scripts/jquery-ui.min.js
+/Scripts/modernizr-2.0.6-development-only.js
