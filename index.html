@@ -2,20 +2,18 @@
 <html manifest="beltprox.appcache">
 	<head>
 	<meta name="apple-mobile-web-app-capable" content="black">
-	<meta name = "viewport" content = "width = 320, initial-scale = 2.3, user-scalable = no">
+	<meta name = "viewport" content="width=device-width, initial-scale=2.0, user-scalable = no">
 	<meta charset="UTF-8">
   <title>BeltProx the App</title>
-  <LINK href="style.css" rel="stylesheet" type="text/css">
-  
-  
-  <script src="Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <!-- <LINK href="style.css" rel="stylesheet" type="text/css"> -->
+  	<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <script src="Scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
   <script src="Scripts/jquery-ui.min.js" type="text/javascript"></script>
   <script src="Scripts/modernizr-2.0.6-development-only.js" type="text/javascript"></script>
 <script src="Scripts/main.js" type="text/javascript"></script>
-
+<script src="Scripts/bootstrap.js"></script>
 </head>
 <body>
-  
   <form id="Site">
 SiteID: <input type="text" name="mysiteID"><br>
 Name: <input type="text" name="myname"><br>
@@ -28,26 +26,22 @@ End Date: <input type="date" name="myend" readonly><br>
 Previous Data:<select id="previousData" size="0"> </select>
 <button id="editSite" type='button'>Edit Site</button>
 <button id="removeSite" type='button'>Remove Site</button>
+  <br>
+  <br>
 </form>
-  
-  <br>
-  <br>
   <div id="datatable" style="display:none">
-  <table id="myDataTable"  width="800">
-    <tr><th>Vehicle Type</th><th>Yes</th><th>No</th><th>Unknown</th></tr>
-<br>Driver
-<tr><td>PC</td><td>	<button id="0" class='IncremBtn'>0</button>	<button id="100" class='DecremBtn' style='background:red'>X</button>	<button id="1" class='IncremBtn'>0</button>	<button id="101" class='DecremBtn' style='background:red'>X</button>	<button id="2" class='IncremBtn'>0</button>	<button id="102" class='DecremBtn' style='background:red'>X</button>
-<tr><td>PU</td><td>	<button id="3" class='IncremBtn'>0</button>	<button id="103" class='DecremBtn' style='background:red'>X</button>	<button id="4" class='IncremBtn'>0</button>	<button id="104" class='DecremBtn' style='background:red'>X</button>	<button id="5" class='IncremBtn'>0</button>	<button id="105" class='DecremBtn' style='background:red'>X</button>
-<tr><td>Van</td><td>	<button id="6" class='IncremBtn'>0</button>	<button id="106" class='DecremBtn' style='background:red'>X</button>	<button id="7" class='IncremBtn'>0</button>	<button id="107" class='DecremBtn' style='background:red'>X</button>	<button id="8" class='IncremBtn'>0</button>	<button id="108" class='DecremBtn' style='background:red'>X</button>
-<tr><td>SUV</td><td>	<button id="9" class='IncremBtn'>0</button>	<button id="109" class='DecremBtn' style='background:red'>X</button>	<button id="10" class='IncremBtn'>0</button>	<button id="110" class='DecremBtn' style='background:red'>X</button>	<button id="11" class='IncremBtn'>0</button>	<button id="111" class='DecremBtn' style='background:red'>X</button>
-<br>Front-Seat Passenger						
-<tr><td>PC</td><td>	<button id="12" class='IncremBtn'>0</button>	<button id="112" class='DecremBtn' style='background:red'>X</button>	<button id="13" class='IncremBtn'>0</button>	<button id="113" class='DecremBtn' style='background:red'>X</button>	<button id="14" class='IncremBtn'>0</button>	<button id="114" class='DecremBtn' style='background:red'>X</button>
-<tr><td>PU</td><td>	<button id="15" class='IncremBtn'>0</button>	<button id="115" class='DecremBtn' style='background:red'>X</button>	<button id="16" class='IncremBtn'>0</button>	<button id="116" class='DecremBtn' style='background:red'>X</button>	<button id="17" class='IncremBtn'>0</button>	<button id="117" class='DecremBtn' style='background:red'>X</button>
-<tr><td>Van</td><td>	<button id="18" class='IncremBtn'>0</button>	<button id="118" class='DecremBtn' style='background:red'>X</button>	<button id="19" class='IncremBtn'>0</button>	<button id="119" class='DecremBtn' style='background:red'>X</button>	<button id="20" class='IncremBtn'>0</button>	<button id="120" class='DecremBtn' style='background:red'>X</button>
-<tr><td>SUV</td><td>	<button id="21" class='IncremBtn'>0</button>	<button id="121" class='DecremBtn' style='background:red'>X</button>	<button id="22" class='IncremBtn'>0</button>	<button id="122" class='DecremBtn' style='background:red'>X</button>	<button id="23" class='IncremBtn'>0</button>	<button id="123" class='DecremBtn' style='background:red'>X</button>
-<br>Other						
-<tr><td>Motorcycle</td><td>	<button id="24" class='IncremBtn'>0</button>	<button id="124" class='DecremBtn' style='background:red'>X</button>	<button id="25" class='IncremBtn'>0</button>	<button id="125" class='DecremBtn' style='background:red'>X</button>	<button id="26" class='IncremBtn'>0</button>	<button id="126" class='DecremBtn' style='background:red'>X</button>
-<tr><td>Bicycle</td><td>	<button id="27" class='IncremBtn'>0</button>	<button id="127" class='DecremBtn' style='background:red'>X</button>	<button id="28" class='IncremBtn'>0</button>	<button id="128" class='DecremBtn' style='background:red'>X</button>	<button id="29" class='IncremBtn'>0</button>	<button id="129" class='DecremBtn' style='background:red'>X</button>
+  <table id="myDataTable">
+<tr><th>Position</th><th>Vehicle Type</th><th>Yes</th><th>No</th><th>Unknown</th></tr>
+<tr><td>Driver</td><td>PC</td><td>	<button id="0" class='IncremBtn'>0</button>	<button id="100" class='DecremBtn' style='background:red'>X</button>	<button id="1" class='IncremBtn'>0</button>	<button id="101" class='DecremBtn' style='background:red'>X</button>	<button id="2" class='IncremBtn'>0</button>	<button id="102" class='DecremBtn' style='background:red'>X</button>
+<tr><td> </td><td>PU</td><td>	<button id="3" class='IncremBtn'>0</button>	<button id="103" class='DecremBtn' style='background:red'>X</button>	<button id="4" class='IncremBtn'>0</button>	<button id="104" class='DecremBtn' style='background:red'>X</button>	<button id="5" class='IncremBtn'>0</button>	<button id="105" class='DecremBtn' style='background:red'>X</button>
+<tr><td> </td><td>Van</td><td>	<button id="6" class='IncremBtn'>0</button>	<button id="106" class='DecremBtn' style='background:red'>X</button>	<button id="7" class='IncremBtn'>0</button>	<button id="107" class='DecremBtn' style='background:red'>X</button>	<button id="8" class='IncremBtn'>0</button>	<button id="108" class='DecremBtn' style='background:red'>X</button>
+<tr><td> </td><td>SUV</td><td>	<button id="9" class='IncremBtn'>0</button>	<button id="109" class='DecremBtn' style='background:red'>X</button>	<button id="10" class='IncremBtn'>0</button>	<button id="110" class='DecremBtn' style='background:red'>X</button>	<button id="11" class='IncremBtn'>0</button>	<button id="111" class='DecremBtn' style='background:red'>X</button>
+<tr><td>Passenger</td><td>PC</td><td>	<button id="12" class='IncremBtn'>0</button>	<button id="112" class='DecremBtn' style='background:red'>X</button>	<button id="13" class='IncremBtn'>0</button>	<button id="113" class='DecremBtn' style='background:red'>X</button>	<button id="14" class='IncremBtn'>0</button>	<button id="114" class='DecremBtn' style='background:red'>X</button>
+<tr><td> </td><td>PU</td><td>	<button id="15" class='IncremBtn'>0</button>	<button id="115" class='DecremBtn' style='background:red'>X</button>	<button id="16" class='IncremBtn'>0</button>	<button id="116" class='DecremBtn' style='background:red'>X</button>	<button id="17" class='IncremBtn'>0</button>	<button id="117" class='DecremBtn' style='background:red'>X</button>
+<tr><td> </td><td>Van</td><td>	<button id="18" class='IncremBtn'>0</button>	<button id="118" class='DecremBtn' style='background:red'>X</button>	<button id="19" class='IncremBtn'>0</button>	<button id="119" class='DecremBtn' style='background:red'>X</button>	<button id="20" class='IncremBtn'>0</button>	<button id="120" class='DecremBtn' style='background:red'>X</button>
+<tr><td> </td><td>SUV</td><td>	<button id="21" class='IncremBtn'>0</button>	<button id="121" class='DecremBtn' style='background:red'>X</button>	<button id="22" class='IncremBtn'>0</button>	<button id="122" class='DecremBtn' style='background:red'>X</button>	<button id="23" class='IncremBtn'>0</button>	<button id="123" class='DecremBtn' style='background:red'>X</button>
+<tr><td>Other</td><td>Motorcycle</td><td>	<button id="24" class='IncremBtn'>0</button>	<button id="124" class='DecremBtn' style='background:red'>X</button>	<button id="25" class='IncremBtn'>0</button>	<button id="125" class='DecremBtn' style='background:red'>X</button>	<button id="26" class='IncremBtn'>0</button>	<button id="126" class='DecremBtn' style='background:red'>X</button>
+<tr><td> </td><td>Bicycle</td><td>	<button id="27" class='IncremBtn'>0</button>	<button id="127" class='DecremBtn' style='background:red'>X</button>	<button id="28" class='IncremBtn'>0</button>	<button id="128" class='DecremBtn' style='background:red'>X</button>	<button id="29" class='IncremBtn'>0</button>	<button id="129" class='DecremBtn' style='background:red'>X</button>
 
     </table>
     <button id="Stop" type='button'>Stop</button>

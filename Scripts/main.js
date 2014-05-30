@@ -60,8 +60,10 @@ $(document).ready(function(){
 });
 
 function adjustValue(Adjust,id){
+	    var snd = new Audio("audio/button-3.wav"); // buffers automatically when created
 		var MyValue = parseInt($(id).html());
 	    var MyValues = Array();
+
 		//var clickedID = this.id();
     	//alert('#' + id.toString);
     	//get current value and add one
@@ -71,6 +73,8 @@ function adjustValue(Adjust,id){
 	    MyValues = getCounts();
 	  
 	    localStorage[getID()] = JSON.stringify(MyValues);
+	    
+	    snd.play();
  
 	    //var storedNames = JSON.parse(localStorage[getID()]);
 	    //alert(storedNames);

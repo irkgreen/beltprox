@@ -35,3 +35,5 @@ make sound on click
 form not populating on edit on iOS
 
 what if you close before save?
+
+<link rel="apple-touch-startup-image" href="/startup.png">
