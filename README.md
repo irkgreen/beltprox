@@ -43,3 +43,7 @@ what if you close before save?
 hide title bar
 
 create two buttons for incre/decrem and value
+
+check if date and comment have a comma!
+
+need to remove motorcycle/bike unknowns in local storage or export

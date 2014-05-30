@@ -55,6 +55,11 @@ $(document).ready(function(){
       .click(function() {
         removeSite();
       });
+     $("#Upload")
+      .button()
+      .click(function() {
+        Upload();
+      });
 	loadSites();
 	 
 });
@@ -80,6 +85,27 @@ function adjustValue(Adjust,id){
 	    //alert(storedNames);
 	    
 	    //localStorage[$box.attr("id")] = JSON.stringify(getCounts);
+}
+
+function Upload(){
+
+//check internet
+
+//convert all list items data to CSV
+exportToCSV();
+
+//write to a backup file (timestamp)
+
+//send email
+
+//verify email
+
+//ask user if they are sure
+
+//copy all data to clipboard
+
+//remove all data from local storage and listbox
+
 }
 
 function loadSites(){
@@ -242,4 +268,52 @@ function stopData() {
    
   }
 
+function exportToCSV() {
 
+// prepare CSV data
+var csvData = new Array();
+csvData.push('"dPCy","dPCn","dPUy","dPUn","dVANy","dVANn","dSUVy","dSUVn","pPCy","pPCn","pPUy","pPUn","pVANy","pVANn","pSUVy","pSUVn","dPCu","dPUu","dVANu","dSUVu","pPCu","pPUu","pVANu","pSUVu","My","Mn","By","Bn","SiteID","Name","Location","Comments","Date","End","Ver"');
+
+for (var i = 0; i < localStorage.length; i++){
+var str = localStorage.getItem(localStorage.key(i));
+csvData.push(str.substring(1,str.length - 3)); //strip off first and last chars [ ]
+}
+
+// download stuff
+var buffer = csvData.join("\n");
+var uri = "data:text/csv;charset=utf8," + encodeURIComponent(buffer);
+var fileName = "data.csv";
+
+var link = document.createElement("a");
+if(link.download !== undefined) { // feature detection
+  // Browsers that support HTML5 download attribute
+  link.setAttribute("href", uri);
+  link.setAttribute("download", fileName);
+}
+else {
+  // it needs to implement server side export
+  link.setAttribute("href", "http://www.example.com/export");
+}
+link.innerHTML = "Export to CSV";
+document.body.appendChild(link);
+
+$(this).attr('href', link);
+
+link.click();
+
+/*
+	var csv = "Abc, DEF, GHI, JKLM";
+	alert("tes");
+	csvData = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csv);
+	
+	$(this)
+	
+	.attr({
+	
+	'href': csvData,
+	
+	'target': '_blank'
+	
+	});
+*/
+}
