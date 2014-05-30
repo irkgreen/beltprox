@@ -41,3 +41,5 @@ what if you close before save?
 <link rel="apple-touch-startup-image" href="/startup.png">
 
 hide title bar
+
+create two buttons for incre/decrem and value
