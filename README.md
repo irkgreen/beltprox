@@ -18,9 +18,9 @@ There is a SQLLite version of localstorage but I am unsure of its support
 
 add note to comments if user edits or stops early or edits a database - make uneditable?
 
-figure out how to use my own JS refs (not from ajax.aspnetcdn.com)
+test app cache
 
-consider switching completely to jquery (need to use name or change name to ID to use #123)
+consider switching completely to jquery (need to use name or change name to ID to use hashtag refs)
 
 consider using json mappings instead of CSV
 
@@ -30,10 +30,14 @@ not sure how to remove old site from the dropdown if the user saves site
 
 clean up, make buttons bigger, line up titles and driver, passenger etc.
 
-make sound on click
+make look iOS-ey
 
-form not populating on edit on iOS
+make sound on click (buffering)
+
+form not populating on edit on iOS in chrom but okay in safari?
 
 what if you close before save?
 
 <link rel="apple-touch-startup-image" href="/startup.png">
+
+hide title bar
