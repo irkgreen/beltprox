@@ -24,11 +24,6 @@ consider using json mappings instead of CSV
 
 warn if increment becomes negative?
 
-not sure how to remove old site from the dropdown if the user saves site
--redesign
-user cannot change ID or name unless new???  re do new and save site
--maybe have a start button and edit data
-
 clean up, make buttons bigger, line up titles and driver, passenger etc.
 make look iOS-ey
 
@@ -36,18 +31,14 @@ make sound on click (buffering) or clean up background color event (buggy)
 
 form not populating on edit on iOS in chrome but okay in safari?
 
-what if you close before save?
-
 <link rel="apple-touch-startup-image" href="/startup.png">
 hide title bar
-
-create two buttons for incre/decrem and value
 
 check if date and comment have a comma!
 
 need to remove motorcycle/bike unknowns in local storage or export
 
-change date to number
+change date to number for key
 
 title row for CSV is set in two places
 

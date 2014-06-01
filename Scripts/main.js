@@ -4,13 +4,15 @@ $(document).ready(function(){
 	//this fires on load or when a button is pressed
 
     //determin if an increment or decrement button was pushed
+    //increm as 0-30, decrems are 100-130 and spans (where the value is stored) are 200-230
     $('.IncremBtn').click(function(event){
-    	var MyID = event.target.id;
-    	adjustValue(1,'#' + MyID);
+    	var MyID = 200 + parseInt(event.target.id);
+    	adjustValue(1,MyID);
     });
     $('.DecremBtn').click(function(event){
-    	var MyID = parseInt(event.target.id) - 100;
-    	adjustValue(-1,'#' + MyID);    });
+    	var MyID = 100 + parseInt(event.target.id); //need to be in the 200s
+    	adjustValue(-1,MyID);
+    });
     
     if (!Modernizr.localstorage) {
       alert("This browser does not support local storage.");
@@ -65,13 +67,13 @@ $(document).ready(function(){
 
 function adjustValue(Adjust,id){
 	    //var snd = new Audio("audio/button-3.wav"); // buffers automatically when created
-		var MyValue = parseInt($(id).html());
+		var MyValue = parseInt($('#' + id).html());
 	    var MyValues = Array();
 
 		//var clickedID = this.id();
     	//alert('#' + id.toString);
     	//get current value and add one
-        $(id).html(MyValue+Adjust);
+        $('#' + parseInt(id)).html(MyValue+Adjust);
         //store data to local application cache
 	 
 	    MyValues = getCounts();
@@ -170,7 +172,7 @@ function editSite(){
         var storedData = JSON.parse(strValue);
 	    
 	    //populate count data
-	 	for (var i = 0; i < 30; i++) {
+	 	for (var i = 200; i < 230; i++) {
 			//alert(document.getElementById(i.toString()).innerHTML);
 			$('#' + i).html(storedData[i]); //not innerHTML?
     	}
@@ -201,7 +203,7 @@ function getCounts() {
 	var myID = "0"; 
 	//loop through each button and get count
 	
-    for (var i = 0; i < 30; i++) {
+    for (var i = 200; i < 230; i++) {
 		//alert(document.getElementById(i.toString()).innerHTML);
 		myID = '#' + i;
 		MyValues[i] = $(myID).html(); //document.getElementById(i.toString()).innerHTML;
@@ -229,7 +231,7 @@ function getID() {
 function createNewSite() {
   
    	//clear all data
-    for (var i = 0; i < 30; i++) {
+    for (var i = 200; i < 230; i++) {
 		//alert(document.getElementById(i.toString()).innerHTML);
 		document.getElementById(i.toString()).innerHTML=0;
 		//$('#' + i.toString).html(0); //doesnt work???
