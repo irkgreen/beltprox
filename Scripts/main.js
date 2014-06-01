@@ -89,49 +89,49 @@ function adjustValue(Adjust,id){
 
 function Upload(){
 
-//check internet
+	//write to a backup file (timestamp)
+	exportToCSV();
+	
+	//check internet
+	
+	//loop through local storage and add to string
+	var emailBody = '"dPCy","dPCn","dPUy","dPUn","dVANy","dVANn","dSUVy","dSUVn","pPCy","pPCn","pPUy","pPUn","pVANy","pVANn","pSUVy","pSUVn","dPCu","dPUu","dVANu","dSUVu","pPCu","pPUu","pVANu","pSUVu","My","Mn","By","Bn","SiteID","Name","Location","Comments","Date","End","Ver"';
+	var localstro = "";
+	for (var i = 0; i < localStorage.length; i++){
+		localstor = localStorage.getItem(localStorage.key(i));
+		emailBody = emailBody + "\n" + localstor;
+		//csvData.push(str.substring(1,str.length - 3)); //strip off first and last chars [ ]
+		}
+	
+	//send email
+	//window.open("mailto:eric.green@uky.edu?subject=BeltProxUpload&body="); // + emailBody);
+	
+	window.location.href = "mailto:eric.green@uky.edu?subject=BeltProxUpload&body=" + emailBody;
 
-//loop through local storage and add to string
-var emailBody = '"dPCy","dPCn","dPUy","dPUn","dVANy","dVANn","dSUVy","dSUVn","pPCy","pPCn","pPUy","pPUn","pVANy","pVANn","pSUVy","pSUVn","dPCu","dPUu","dVANu","dSUVu","pPCu","pPUu","pVANu","pSUVu","My","Mn","By","Bn","SiteID","Name","Location","Comments","Date","End","Ver"';
-var localstro = "";
-for (var i = 0; i < localStorage.length; i++){
-localstor = localStorage.getItem(localStorage.key(i));
-emailBody = emailBody + "\n" + localstor;
-//csvData.push(str.substring(1,str.length - 3)); //strip off first and last chars [ ]
-}
-
-//write to a backup file (timestamp)
-
-//send email
-//window.open("mailto:eric.green@uky.edu?subject=BeltProxUpload&body="); // + emailBody);
-window.location.href = "mailto:eric.green@uky.edu?subject=BeltProxUpload&body=" + emailBody;
-
-//verify email
-
-//ask user if they are sure
-if (confirm('Was the email sent and would you like to delete the local data?')) {
-	//remove all data from local storage and listbox
-    localStorage.clear();
-    while($("#mysiteID").length > 0)
-  {
-   $("#mysiteID").remove(0);
-  }
-} else {
-    // Do nothing!
-}
-
-
-//copy all data to clipboard
-
-
+	//verify email
+	
+	//ask user if they are sure
+	if (confirm('Was the email sent and would you like to delete the local data?')) {
+		//remove all data from local storage and listbox
+	    localStorage.clear();
+		loadSites(); //this will verfify that the localstorage was cleared and clear the dropbown accordingly
+		
+	} else {
+	    // Do nothing!
+	}
+	
+	//console.log("here!");
+	//copy all data to clipboard
 
 }
 
 function loadSites(){
 	  //load any previous data into listbox for review and edit
-	  
+
 	var opt = "";
-	      
+	
+	$("#previousData > option").remove();
+		
     for (var i = 0; i < localStorage.length; i++){
 		// Create an Option object
 		
@@ -145,6 +145,7 @@ function loadSites(){
 			.text(opt));
 		//alert(localStorage.getItem(localStorage.key(i)));
 	 	}
+	 	
 }
 
 function saveSite(){
@@ -289,12 +290,8 @@ function stopData() {
 
 function exportToCSV() {
 
-
-
 //var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
 //saveAs(blob, "hello world.txt");
-
-/*
 
 // prepare CSV data
 var csvData = new Array();
@@ -308,23 +305,28 @@ csvData.push(str.substring(1,str.length - 3)); //strip off first and last chars 
 // download stuff
 var buffer = csvData.join("\n");
 var uri = "data:text/csv;charset=utf8," + encodeURIComponent(buffer);
-var fileName = "data.csv";
+var today = new Date();
+var fileName = today + ".csv";
 
 $(this).attr("href", uri).attr("download", fileName);
 
-/*
-
-//var link = document.createElement("a");
+var link = document.createElement("a");
+var myBreak = document.createElement("br");
 //if(link.download !== undefined) { // feature detection
   // Browsers that support HTML5 download attribute
-  //link.setAttribute("href", uri);
+link.setAttribute("href", uri);
   //link.setAttribute("download", fileName);
 //}
 //else {
   // it needs to implement server side export
   //link.setAttribute("href", "http://www.example.com/export");
 //}
-//link.innerHTML = "Export to CSV";
+link.innerHTML = "Backup " + today;
+
+//add link and break
+document.getElementById('Backup').appendChild(link);
+document.getElementById('Backup').appendChild(myBreak);
+
 //document.body.appendChild(link);
 
 //window.open(uri);

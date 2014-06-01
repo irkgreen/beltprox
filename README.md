@@ -47,3 +47,15 @@ create two buttons for incre/decrem and value
 check if date and comment have a comma!
 
 need to remove motorcycle/bike unknowns in local storage or export
+
+change date to number
+
+fix backup export (need to reload page which removes link)
+
+fix confirm (doesnt delete listbox without refresh) - repeat solution elsewhere where page repload is used
+
+title row is set in two places
+
+email not sent on desktop (check and use another method?)
+
+what if no data and upload clicked?
