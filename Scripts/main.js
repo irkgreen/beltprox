@@ -105,7 +105,6 @@ function Upload(){
 	
 	//send email
 	//window.open("mailto:eric.green@uky.edu?subject=BeltProxUpload&body="); // + emailBody);
-	
 	window.location.href = "mailto:eric.green@uky.edu?subject=BeltProxUpload&body=" + emailBody;
 
 	//verify email
@@ -157,7 +156,8 @@ function saveSite(){
 	    alert(MyValues);
 	   	//var storedNames = JSON.parse(localStorage[getID()]);
 	    //alert(storedNames);
-    	location.reload();
+    	//location.reload(); A reload will clear backup!!
+    	loadSites();
 }
 
 function editSite(){
@@ -196,7 +196,8 @@ function removeSite(){
       	var strKey = $('#previousData option:selected').val();
         var strValue = localStorage.removeItem(strKey);
         
-        location.reload();
+        //location.reload(); a reload will clear backup!!
+        loadSites();
 }
 function getCounts() {
 	//this will store all data into an array
@@ -266,7 +267,7 @@ function createNewSite() {
    document.querySelector('#datatable').style.display = 'table';
    document.querySelector('#Site').style.display = 'none';
    
-   //return True;
+   saveSite();
    
   }
 
@@ -284,7 +285,8 @@ function stopData() {
    document.querySelector('#datatable').style.display = 'none';
    document.querySelector('#Site').style.display = 'block';
    
-   location.reload();
+   //location.reload();
+   alert("do we need a reload here?");
    
   }
 

@@ -59,3 +59,5 @@ title row is set in two places
 email not sent on desktop (check and use another method?)
 
 what if no data and upload clicked?
+
+user cannot change ID or name unless new???  re do new and save site
