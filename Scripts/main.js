@@ -31,11 +31,6 @@ $(document).ready(function(){
       .click(function() {
         stopData();
       });
-     $("#saveSite")
-      .button()
-      .click(function() {
-        saveSite();
-      });
      $("#editSite")
       .button()
       .click(function() {
@@ -50,6 +45,19 @@ $(document).ready(function(){
       .button()
       .click(function() {
         Upload();
+      });
+      $("#startData")
+      .button()
+      .click(function() {
+        startData();
+      });
+      $("#mycomments") //autosave as the user types
+      .keyup(function() {
+      	saveSite();
+      });
+      $("#mylocation") //autosave as the user types
+      .keyup(function() {
+      	saveSite();
       });
 	loadSites();
 	 
@@ -174,12 +182,7 @@ function editSite(){
 	    document.forms["Site"]["mycomments"].value = storedData[33];
 	    document.forms["Site"]["mydate"].value = storedData[34];
 	    document.forms["Site"]["myend"].value = storedData[35];
-	    
-	    //unhide table/hide site data
-	   document.querySelector('#datatable').style.display = 'table';
-	   document.querySelector('#Site').style.display = 'none';
-	    //alert(storedNames);
-    
+	     
 }
 
 function removeSite(){
@@ -224,37 +227,48 @@ function getID() {
 }
 
 function createNewSite() {
-   //this will create a new site ID to be used for all local storage
-
-/* commented out for debugging
- 
-   		//check user's form data
-   		
-	   		var x=document.forms["Site"]["mysiteID"].value;
-			if (x==null || x=="")
-		  	{
-				alert("Site ID must be filled out!");
-		  		return false;
-		  	}
-		   x=document.forms["Site"]["myname"].value;
-			if (x==null || x=="")
-		  	{
-		  		alert("Name must be filled out!");
-		  		return false;
-		  	}
-		  	
-*/
-
-	//clear all data
+  
+   	//clear all data
     for (var i = 0; i < 30; i++) {
 		//alert(document.getElementById(i.toString()).innerHTML);
-		//document.getElementById(i.toString()).innerHTML=0;
-		$('#' + i.toString).html(0);
+		document.getElementById(i.toString()).innerHTML=0;
+		//$('#' + i.toString).html(0); //doesnt work???
     }
 
-  	//set date and time to now
-  	var today = new Date();
-  	document.getElementsByName("mydate")[0].value = today; // $('#mydate').val() = today;
+    document.getElementsByName("mysiteID")[0].value = ""; // this doesnt seem to work $("#mysiteID").val();
+    document.getElementsByName("myname")[0].value = ""; // $('#myname').val();
+    document.getElementsByName("mylocation")[0].value = ""; // $('#mylocation').val();
+    document.getElementsByName("mycomments")[0].value = ""; // $('#mycomments').val();
+    document.getElementsByName("mydate")[0].value = ""; // $('#mydate').val();
+    document.getElementsByName("myend")[0].value = ""; // $('#myend').val();
+
+    document.getElementsByName("mysiteID")[0].disabled = false;
+    document.getElementsByName("myname")[0].disabled = false;
+  }
+  
+function startData() {
+
+	//check user's form data
+	var x=document.forms["Site"]["mysiteID"].value;
+	if (x==null || x=="")
+  	{
+		alert("Site ID must be filled out!");
+  		return false;
+  	}
+   x=document.forms["Site"]["myname"].value;
+	if (x==null || x=="")
+  	{
+  		alert("Name must be filled out!");
+  		return false;
+  	}
+	  	
+  	//set date and time to now if blank
+  	//if not blank then that means the user is editing and changing this will change the key
+  	if (document.getElementsByName("mydate")[0].value=="")
+  	{
+  		var today = new Date();
+  		document.getElementsByName("mydate")[0].value = today; // $('#mydate').val() = today;
+  	}
   	
    //unhide table
    document.querySelector('#datatable').style.display = 'table';
@@ -262,7 +276,9 @@ function createNewSite() {
    
    saveSite();
    
-  }
+    document.getElementsByName("mysiteID")[0].disabled = true;
+    document.getElementsByName("myname")[0].disabled = true;
+}
 
 function stopData() {
    //this will stop data collection and show main form again
@@ -278,72 +294,69 @@ function stopData() {
    document.querySelector('#datatable').style.display = 'none';
    document.querySelector('#Site').style.display = 'block';
    
-   //location.reload();
-   alert("do we need a reload here?");
-   
   }
 
 function exportToCSV() {
 
-//var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
-//saveAs(blob, "hello world.txt");
-
-// prepare CSV data
-var csvData = new Array();
-csvData.push('"dPCy","dPCn","dPUy","dPUn","dVANy","dVANn","dSUVy","dSUVn","pPCy","pPCn","pPUy","pPUn","pVANy","pVANn","pSUVy","pSUVn","dPCu","dPUu","dVANu","dSUVu","pPCu","pPUu","pVANu","pSUVu","My","Mn","By","Bn","SiteID","Name","Location","Comments","Date","End","Ver"');
-
-for (var i = 0; i < localStorage.length; i++){
-var str = localStorage.getItem(localStorage.key(i));
-csvData.push(str.substring(1,str.length - 3)); //strip off first and last chars [ ]
-}
-
-// download stuff
-var buffer = csvData.join("\n");
-var uri = "data:text/csv;charset=utf8," + encodeURIComponent(buffer);
-var today = new Date();
-var fileName = today + ".csv";
-
-$(this).attr("href", uri).attr("download", fileName);
-
-var link = document.createElement("a");
-var myBreak = document.createElement("br");
-//if(link.download !== undefined) { // feature detection
-  // Browsers that support HTML5 download attribute
-link.setAttribute("href", uri);
-  //link.setAttribute("download", fileName);
-//}
-//else {
-  // it needs to implement server side export
-  //link.setAttribute("href", "http://www.example.com/export");
-//}
-link.innerHTML = "Backup " + today;
-
-//add link and break
-document.getElementById('Backup').appendChild(link);
-document.getElementById('Backup').appendChild(myBreak);
-
-//document.body.appendChild(link);
-
-//window.open(uri);
-
-//$(this).attr('href', link);
-// link.download();
-
-/*
-	var csv = "Abc, DEF, GHI, JKLM";
-	alert("tes");
-	csvData = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csv);
+	//var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
+	//saveAs(blob, "hello world.txt");
 	
-	$(this)
+	// prepare CSV data
+	var csvData = new Array();
+	csvData.push('"dPCy","dPCn","dPUy","dPUn","dVANy","dVANn","dSUVy","dSUVn","pPCy","pPCn","pPUy","pPUn","pVANy","pVANn","pSUVy","pSUVn","dPCu","dPUu","dVANu","dSUVu","pPCu","pPUu","pVANu","pSUVu","My","Mn","By","Bn","SiteID","Name","Location","Comments","Date","End","Ver"');
 	
-	.attr({
+	for (var i = 0; i < localStorage.length; i++){
+	var str = localStorage.getItem(localStorage.key(i));
+	csvData.push(str.substring(1,str.length - 3)); //strip off first and last chars [ ]
+	}
 	
-	'href': csvData,
+	// download stuff
+	var buffer = csvData.join("\n");
+	var uri = "data:text/csv;charset=utf8," + encodeURIComponent(buffer);
+	var today = new Date();
+	var fileName = today + ".csv";
 	
-	'target': '_blank'
+	$(this).attr("href", uri).attr("download", fileName);
 	
-	});
-*/
+	var link = document.createElement("a");
+	var myBreak = document.createElement("br");
+	//if(link.download !== undefined) { // feature detection
+	  // Browsers that support HTML5 download attribute
+	link.setAttribute("href", uri);
+	  //link.setAttribute("download", fileName);
+	//}
+	//else {
+	  // it needs to implement server side export
+	  //link.setAttribute("href", "http://www.example.com/export");
+	//}
+	link.innerHTML = "Backup " + today;
+	
+	//add link and break
+	document.getElementById('Backup').appendChild(link);
+	document.getElementById('Backup').appendChild(myBreak);
+	
+	//document.body.appendChild(link);
+	
+	//window.open(uri);
+	
+	//$(this).attr('href', link);
+	// link.download();
+	
+	/*
+		var csv = "Abc, DEF, GHI, JKLM";
+		alert("tes");
+		csvData = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csv);
+		
+		$(this)
+		
+		.attr({
+		
+		'href': csvData,
+		
+		'target': '_blank'
+		
+		});
+	*/
 }
 
 function changecolors() {

@@ -15,15 +15,18 @@
 </head>
 <body>
   <form id="Site">
-SiteID: <input type="text" name="mysiteID"><br>
-Name: <input type="text" name="myname"><br>
-Location: <input type="text" name="mylocation"><br>
-Comments: <input type="text" name="mycomments"><br>
+<button id="newSite" type='button'>Clear Form and Data (new site)</button><br>
+SiteID: <input type="text" id="mysiteID" name="mysiteID"><br>
+Name: <input type="text" id="myname" name="myname"><br>
+Location: <input type="text" id="mylocation" name="mylocation"><br>
+Comments: <input type="text" id="mycomments" name="mycomments"><br>
 Start Date: <input type="date" name="mydate" readonly><br>
 End Date: <input type="date" name="myend" readonly><br>
-<button id="newSite" type='button'>New Site</button>
-<button id="saveSite" type='button'>Save Site</button><br><br>
-Previous Data:<select id="previousData" size="0"> </select>
+<button id="startData" type='button'>Start/Edit Data</button>
+<br><br>
+Collected Data:
+<br>
+<select id="previousData" size="0"> </select>
 <button id="editSite" type='button'>Edit Site</button>
 <button id="removeSite" type='button'>Remove Site</button>
 <button id="Upload" type='button'>Upload</button>
