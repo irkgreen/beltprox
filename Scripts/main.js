@@ -1,12 +1,3 @@
-
-/// Copyright 2011, Ian Gilman
-/// Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
-/// <reference path="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.js" />
-/// <reference path="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.21/jquery-ui.min.js" />
-/// <reference path="Scripts/jquery.ui.touch-punch.min.js" />
-/// <reference path="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.0.6-development-only.js" />
-
-// hey all... look here...
 // here is a live demo of this code: http://www.ellipsetours.com/Demos/storage/
 
 $(document).ready(function(){
@@ -65,7 +56,7 @@ $(document).ready(function(){
 });
 
 function adjustValue(Adjust,id){
-	    var snd = new Audio("audio/button-3.wav"); // buffers automatically when created
+	    //var snd = new Audio("audio/button-3.wav"); // buffers automatically when created
 		var MyValue = parseInt($(id).html());
 	    var MyValues = Array();
 
@@ -79,7 +70,9 @@ function adjustValue(Adjust,id){
 	  
 	    localStorage[getID()] = JSON.stringify(MyValues);
 	    
-	    snd.play();
+	    //snd.play();
+ 
+ 		changecolors();
  
 	    //var storedNames = JSON.parse(localStorage[getID()]);
 	    //alert(storedNames);
@@ -153,7 +146,7 @@ function saveSite(){
 	    var MyValues = Array();
 	    MyValues = getCounts();
 	    localStorage[getID()] = JSON.stringify(MyValues);    
-	    alert(MyValues);
+	    //alert(MyValues);
 	   	//var storedNames = JSON.parse(localStorage[getID()]);
 	    //alert(storedNames);
     	//location.reload(); A reload will clear backup!!
@@ -352,3 +345,13 @@ document.getElementById('Backup').appendChild(myBreak);
 	});
 */
 }
+
+function changecolors() {
+    document.body.style.background = "red";
+    setInterval(changeBack, 100);
+    }
+
+function changeBack() {
+	document.body.style.background = "white";
+}
+
