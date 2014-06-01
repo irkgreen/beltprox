@@ -91,20 +91,39 @@ function Upload(){
 
 //check internet
 
-//convert all list items data to CSV
-exportToCSV();
+//loop through local storage and add to string
+var emailBody = '"dPCy","dPCn","dPUy","dPUn","dVANy","dVANn","dSUVy","dSUVn","pPCy","pPCn","pPUy","pPUn","pVANy","pVANn","pSUVy","pSUVn","dPCu","dPUu","dVANu","dSUVu","pPCu","pPUu","pVANu","pSUVu","My","Mn","By","Bn","SiteID","Name","Location","Comments","Date","End","Ver"';
+var localstro = "";
+for (var i = 0; i < localStorage.length; i++){
+localstor = localStorage.getItem(localStorage.key(i));
+emailBody = emailBody + "\n" + localstor;
+//csvData.push(str.substring(1,str.length - 3)); //strip off first and last chars [ ]
+}
 
 //write to a backup file (timestamp)
 
 //send email
+//window.open("mailto:eric.green@uky.edu?subject=BeltProxUpload&body="); // + emailBody);
+window.location.href = "mailto:eric.green@uky.edu?subject=BeltProxUpload&body=" + emailBody;
 
 //verify email
 
 //ask user if they are sure
+if (confirm('Was the email sent and would you like to delete the local data?')) {
+	//remove all data from local storage and listbox
+    localStorage.clear();
+    while($("#mysiteID").length > 0)
+  {
+   $("#mysiteID").remove(0);
+  }
+} else {
+    // Do nothing!
+}
+
 
 //copy all data to clipboard
 
-//remove all data from local storage and listbox
+
 
 }
 
@@ -270,6 +289,13 @@ function stopData() {
 
 function exportToCSV() {
 
+
+
+//var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
+//saveAs(blob, "hello world.txt");
+
+/*
+
 // prepare CSV data
 var csvData = new Array();
 csvData.push('"dPCy","dPCn","dPUy","dPUn","dVANy","dVANn","dSUVy","dSUVn","pPCy","pPCn","pPUy","pPUn","pVANy","pVANn","pSUVy","pSUVn","dPCu","dPUu","dVANu","dSUVu","pPCu","pPUu","pVANu","pSUVu","My","Mn","By","Bn","SiteID","Name","Location","Comments","Date","End","Ver"');
@@ -284,22 +310,27 @@ var buffer = csvData.join("\n");
 var uri = "data:text/csv;charset=utf8," + encodeURIComponent(buffer);
 var fileName = "data.csv";
 
-var link = document.createElement("a");
-if(link.download !== undefined) { // feature detection
+$(this).attr("href", uri).attr("download", fileName);
+
+/*
+
+//var link = document.createElement("a");
+//if(link.download !== undefined) { // feature detection
   // Browsers that support HTML5 download attribute
-  link.setAttribute("href", uri);
-  link.setAttribute("download", fileName);
-}
-else {
+  //link.setAttribute("href", uri);
+  //link.setAttribute("download", fileName);
+//}
+//else {
   // it needs to implement server side export
-  link.setAttribute("href", "http://www.example.com/export");
-}
-link.innerHTML = "Export to CSV";
-document.body.appendChild(link);
+  //link.setAttribute("href", "http://www.example.com/export");
+//}
+//link.innerHTML = "Export to CSV";
+//document.body.appendChild(link);
 
-$(this).attr('href', link);
+//window.open(uri);
 
-link.click();
+//$(this).attr('href', link);
+// link.download();
 
 /*
 	var csv = "Abc, DEF, GHI, JKLM";
