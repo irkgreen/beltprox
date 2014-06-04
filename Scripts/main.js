@@ -55,11 +55,11 @@ $(document).ready(function(){
       });
       $("#mycomments") //autosave as the user types
       .keyup(function() {
-      	saveSite();
+      	saveSite($("#mycomments").val());
       });
       $("#mylocation") //autosave as the user types
       .keyup(function() {
-      	saveSite();
+      	saveSite($("#mylocation").val());
       });
 	loadSites();
 	 
@@ -92,6 +92,13 @@ function adjustValue(Adjust,id){
 
 function Upload(){
 
+	//check for data
+	if ($('#previousData > option').length < 1)
+	{
+		alert("No data collected.  Go collect some data!");
+		return false;
+	}
+	
 	//write to a backup file (timestamp)
 	exportToCSV();
 	
@@ -150,8 +157,15 @@ function loadSites(){
 	 	
 }
 
-function saveSite(){
+function saveSite(myVal){
 //this function saves the site in the event the user changes main form values
+
+		//check for commas
+		if(myVal.indexOf(",") > -1)
+		{
+			alert("Please remove any commas from comments and location!");
+			return false;
+		}
 
 	    var MyValues = Array();
 	    MyValues = getCounts();
@@ -276,7 +290,7 @@ function startData() {
    document.querySelector('#datatable').style.display = 'table';
    document.querySelector('#Site').style.display = 'none';
    
-   saveSite();
+   saveSite("ok");
    
     document.getElementsByName("mysiteID")[0].disabled = true;
     document.getElementsByName("myname")[0].disabled = true;

@@ -9,8 +9,6 @@ Essential:
 --add check or a way to forcibly get the latest version.  This could happen every time the user uploads
 --force users to run: chrome://appcache-internals/ or similar
 -make sound on click (buffering) or clean up background color event (buggy)
--Check if comments or location or ID or user have commas (or any other non-standard char)
--what if no data and upload clicked
 -make the table hollow so that flash is seen
 -remove scale of 2.0
 -design for portrait
