@@ -19,7 +19,6 @@ make look iOS-ey
 Would-be-nice:
 -start timer, shows countdown on table?
 -add note to comments if user edits or stops early or edits a database - make uneditable?
--warn if increment becomes negative?
 -Clean up workflow – the current site isn’t selected in the dropdown (counterintuitive)
 -Add startup image: <link rel="apple-touch-startup-image" href="/startup.png">
 -Test running app from springboard
