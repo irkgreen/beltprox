@@ -69,7 +69,13 @@ function adjustValue(Adjust,id){
 	    //var snd = new Audio("audio/button-3.wav"); // buffers automatically when created
 		var MyValue = parseInt($('#' + id).html());
 	    var MyValues = Array();
-
+		
+		if (MyValue < 1 && Adjust ==-1) 
+		{
+			//don't make negative
+			return false;
+		}
+		
 		//var clickedID = this.id();
     	//alert('#' + id.toString);
     	//get current value and add one
@@ -81,7 +87,6 @@ function adjustValue(Adjust,id){
 	    localStorage[getID()] = JSON.stringify(MyValues);
 	    
 	    //snd.play();
- 
  		changecolors();
  
 	    //var storedNames = JSON.parse(localStorage[getID()]);
@@ -377,7 +382,7 @@ function exportToCSV() {
 
 function changecolors() {
     document.body.style.background = "red";
-    setInterval(changeBack, 100);
+    setInterval(changeBack, 200);
     }
 
 function changeBack() {
