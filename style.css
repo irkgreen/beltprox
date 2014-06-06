@@ -1,7 +1,7 @@
 table
 { 
   height: auto; 
-  width: 728px;
+  width: auto;
   padding: 0; 
   margin: 0 auto; 
   background: #EEE; 
@@ -28,11 +28,11 @@ table
 
 .rowGroup {
 	border-top: 2px solid #0567FA;
+	height: 80px;
 }
 
 td span {
 	width: 40px;
-	display: inline-block;
 	text-align:center;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -40,9 +40,8 @@ td span {
 }
 
 .IncremBtn, .DecremBtn {
-width: 50px;
-height: 50px;
-display: inline-block;
+width: 130px;
+height: 60px;
 border: none;
 margin: 0;
 padding: 0;
@@ -57,13 +56,21 @@ padding: 0;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feccb1), color-stop(50%,#f17432), color-stop(51%,#ea5507), color-stop(100%,#fb955e)); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top,  #feccb1 0%,#f17432 50%,#ea5507 51%,#fb955e 100%); /* Chrome10+,Safari5.1+ */
 	width: 25px;
-	height: 25px;
+	height: 60px;
+	visibility:hidden; 
 }
 
 .colYes, .colNo, .colUnk {
-	width: 150px;
+	width: 200px;
 }
 
 .colYes, .colUnk {
 	background: #ccc !important;
+}
+
+.colType{
+	width: 120px;
+}
+.colPosition{
+	width: 20px;
 }
