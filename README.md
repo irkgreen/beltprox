@@ -10,11 +10,8 @@ Essential:
 --force users to run: chrome://appcache-internals/ or similar
 -make sound on click (buffering) or clean up background color event (buggy)
 -make the table hollow so that flash is seen
--remove scale of 2.0
 -design for portrait
--The label 'Front seat passenger' is taking up valuable real estate.  Perhaps we can wrap it or shorthand it
--clean up, make buttons bigger, line up titles and driver, passenger etc.
-make look iOS-ey
+make look iOS-ey - boot strap
 
 Would-be-nice:
 -start timer, shows countdown on table?
@@ -29,6 +26,7 @@ Would-be-nice:
 -title row for CSV is set in two places – should be a global variable
 -email not sent on desktop during upload. We should check and use another method for debugging
 -Use a picture for vehicle types and seat
+-disable copy/paste
 
 Optimization:
 -check for “QUOTA_EXCEEDED_ERR”
