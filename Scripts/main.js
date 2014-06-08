@@ -5,7 +5,12 @@ var gTitle='"dPCy","dPCn","dPCu","dPUy","dPUn","dPUu","dVANy","dVANn","dVANu","d
 
 $(document).ready(function(){
 	//this fires on load or when a button is pressed
-
+	
+	//if non-retina then use scale
+	if (window.devicePixelRatio < 2) { 
+	    document.querySelector("meta[name=viewport]").setAttribute('content','width=device-width, initial-scale=1.0, user-scalable = no');
+	    }
+	    
     //determin if an increment or decrement button was pushed
     //increm as 0-30, decrems are 100-130 and spans (where the value is stored) are 200-230
     $('.IncremBtn').click(function(event){

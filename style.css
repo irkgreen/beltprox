@@ -1,3 +1,10 @@
+/* test for res
+@media (-webkit-min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi) {
+    
+}
+*/
+
 table
 { 
   height: auto; 
@@ -9,6 +16,7 @@ table
   border-radius: 5px;
   border-spacing: 0;
   border-collapse:collapse;
+  -webkit-user-select: none; /* no copy and paste */
 }
 
 #myDataTable td {
