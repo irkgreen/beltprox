@@ -7,9 +7,6 @@ Resources:
 Staged:
 
 Essential:
--try changing color alternatively with each click
--reset undo back to default on new and edit
--save last 10 undos?
 -test app cache
 --add check or a way to forcibly get the latest version.  This could happen every time the user uploads
 --force users to run: chrome://appcache-internals/ or similar

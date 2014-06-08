@@ -140,6 +140,7 @@ function Upload(){
 		//remove all data from local storage and listbox
 	    localStorage.clear();
 		loadSites(); //this will verfify that the localstorage was cleared and clear the dropbown accordingly
+		createNewSite();
 		
 	} else {
 	    // Do nothing!
@@ -276,6 +277,7 @@ function createNewSite() {
 
     document.getElementsByName("mysiteID")[0].disabled = false;
     document.getElementsByName("myname")[0].disabled = false;
+    
   }
   
 function startData() {
@@ -310,6 +312,10 @@ function startData() {
    
     document.getElementsByName("mysiteID")[0].disabled = true;
     document.getElementsByName("myname")[0].disabled = true;
+    
+    //clear undo
+    $('#Undo').val("-1");
+    $('#Undo').html("Nothing to undo");
 }
 
 function stopData() {
@@ -392,8 +398,15 @@ function exportToCSV() {
 }
 
 function changecolors() {
-    document.body.style.background = "red";
-    setInterval(changeBack, 200);
+	if (document.body.style.background == "")
+	{
+		document.body.style.background = "grey";
+	}
+	else 
+	{	
+		document.body.style.background = "";
+	}
+        //setInterval(changeBack, 200);
     }
 
 function changeBack() {
