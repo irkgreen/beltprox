@@ -141,7 +141,7 @@ function Upload(){
 	//verify email
 	
 	//ask user if they are sure
-	if (confirm('Was the email sent and would you like to delete the local data?')) {
+	if (confirm('The data will be pasted into an email message.  Be sure to send this email right away.  The data will be deleted from the local storage.  Are you sure?  A backup will be temporarily available on this page.')) {
 		//remove all data from local storage and listbox
 	    localStorage.clear();
 		loadSites(); //this will verfify that the localstorage was cleared and clear the dropbown accordingly
