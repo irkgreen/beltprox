@@ -7,9 +7,7 @@ Resources:
 Staged:
 
 Essential:
--are nulls not set to 0? 
--removing site should start new form
--make count buttons shorter, stop and undo taller and follow class of others (stop = red, undo = yellow)
+-color buttons MISC (stop = red, undo = yellow)
 -add timer to bottom
 -test app cache
 --add check or a way to forcibly get the latest version.  This could happen every time the user uploads

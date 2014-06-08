@@ -145,7 +145,7 @@ function Upload(){
 		//remove all data from local storage and listbox
 	    localStorage.clear();
 		loadSites(); //this will verfify that the localstorage was cleared and clear the dropbown accordingly
-		createNewSite();
+		createNewSite();  //clear form cache
 		
 	} else {
 	    // Do nothing!
@@ -176,7 +176,7 @@ function loadSites(){
 			.text(opt));
 		//alert(localStorage.getItem(localStorage.key(i)));
 	 	}
-	 	
+	
 }
 
 function saveSite(myVal){
@@ -232,6 +232,8 @@ function removeSite(){
         
         //location.reload(); a reload will clear backup!!
         loadSites();
+    	createNewSite();  //clear form cache as we don't know which record they deleted
+	
 }
 function getCounts() {
 	//this will store all data into an array

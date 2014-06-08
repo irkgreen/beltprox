@@ -5,7 +5,7 @@
 }
 */
 
-table
+#myDataTable
 { 
   height: auto; 
   width: auto;
@@ -35,7 +35,7 @@ table
 
 .rowGroup {
 	border-top: 2px solid #0567FA;
-	height: 80px;
+	height: 70px;
 }
 
 td span {
@@ -48,7 +48,7 @@ td span {
 
 .IncremBtn {
 width: 130px;
-height: 60px;
+height: 50px;
 border: none;
 margin: 0;
 padding: 0;
@@ -56,6 +56,19 @@ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b4e39
 background: -webkit-linear-gradient(top,  #b4e391 0%,#61c419 50%,#b4e391 100%); /* Chrome10+,Safari5.1+ */
 }
 
+.MISC{
+width: 130px;
+height: 50px;
+border: none;
+margin: 0;
+padding: 0;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b4e391), color-stop(50%,#61c419), color-stop(100%,#b4e391)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #b4e391 0%,#61c419 50%,#b4e391 100%); /* Chrome10+,Safari5.1+ */
+}
+
+.SiteData{
+	width: 400px;
+}
 .colYes, .colNo, .colUnk {
 	width: 200px;
 }

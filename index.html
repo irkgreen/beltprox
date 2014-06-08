@@ -14,14 +14,19 @@
 <!--<script src="Scripts/bootstrap.js"></script>-->
 </head>
 <body>
-  <form id="Site">
+	<form id="Site">
+  	BeltProx<br><br>
+  	Please fill out the form below before starting data collection.<br>
 <button id="newSite" type='button'>Clear Form and Data (new site)</button><br>
-SiteID: <input type="text" id="mysiteID" name="mysiteID"><br>
-Name: <input type="text" id="myname" name="myname"><br>
-Location: <input type="text" id="mylocation" name="mylocation"><br>
-Comments: <input type="text" id="mycomments" name="mycomments"><br>
-Start Date: <input type="date" name="mydate" readonly><br>
-End Date: <input type="date" name="myend" readonly><br>
+<table id="myFormTable">
+	<tr><td>SiteID </td><td><input class='SiteData' type="text" id="mysiteID" name="mysiteID"></td></tr>
+	<tr><td>Name </td><td><input class='SiteData' type="text" id="myname" name="myname"></td></tr>
+	<tr><td>Location </td><td><input class='SiteData' type="text" id="mylocation" name="mylocation"></td></tr>
+	<tr><td>Comments </td><td><input class='SiteData' type="text" id="mycomments" name="mycomments"></td></tr>
+	<tr><td>Start Date </td><td><input class='SiteData' type="date" name="mydate" readonly></td></tr>
+	<tr><td>End Date </td><td><input class='SiteData' type="date" name="myend" readonly></td></tr>
+</table>
+
 <button id="startData" type='button'>Start/Edit Data</button>
 <br><br>
 Collected Data:
@@ -119,11 +124,11 @@ Collected Data:
 		<td><button id="29" class='IncremBtn'>0</button></td>
     </tr>
 </table>
-    <button id="Stop" type='button'>Stop</button> <button id="Undo" type='button' value="-1">Nothing to Undo</button>
+    <button id="Stop" class='MISC' type='button'>Stop</button> <button id="Undo" class='MISC' type='button' value="-1">Nothing to Undo</button>
   </div>
   
   <aside id="info">
-    <p>Belt Prox 1.015</p>
+    <p>Belt Prox 1.016</p>
   </aside>
   <span id="Backup"></span>
 </body>
