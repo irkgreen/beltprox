@@ -1,17 +1,28 @@
 // here is a live demo of this code: http://www.ellipsetours.com/Demos/storage/
 
+//titlerow
+var gTitle='"dPCy","dPCn","dPCu","dPUy","dPUn","dPUu","dVANy","dVANn","dVANu","dSUVy","dSUVn","dSUVu","pPCy","pPCn","pPCu","pPUy","pPUn","pPUu","pVANy","pVANn","pVANu","pSUVy","pSUVn","pSUVu","My","Mn","Mu","By","Bn","Bu","SiteID","Name","Location","Comments","Date","End","Ver"';
+
 $(document).ready(function(){
 	//this fires on load or when a button is pressed
 
     //determin if an increment or decrement button was pushed
     //increm as 0-30, decrems are 100-130 and spans (where the value is stored) are 200-230
     $('.IncremBtn').click(function(event){
-    	var MyID = 200 + parseInt(event.target.id);
+    	var MyID = parseInt(event.target.id);
     	adjustValue(1,MyID);
+    	//store this ID in undo button
+    	$('#Undo').val(MyID);
+    	$('#Undo').html("Undo " + IDtoName(MyID));
     });
-    $('.DecremBtn').click(function(event){
-    	var MyID = 100 + parseInt(event.target.id); //need to be in the 200s
-    	adjustValue(-1,MyID);
+    $('#Undo').click(function(event){
+    	var UndoValue = $('#Undo').val();
+    	if (UndoValue!="-1") //-1 means there is nothing to undo, the default state
+    	{
+    		var MyID = parseInt(UndoValue); //get from undo button value
+    		adjustValue(-1,MyID);
+    	}
+
     });
     
     if (!Modernizr.localstorage) {
@@ -110,7 +121,7 @@ function Upload(){
 	//check internet
 	
 	//loop through local storage and add to string
-	var emailBody = '"dPCy","dPCn","dPUy","dPUn","dVANy","dVANn","dSUVy","dSUVn","pPCy","pPCn","pPUy","pPUn","pVANy","pVANn","pSUVy","pSUVn","dPCu","dPUu","dVANu","dSUVu","pPCu","pPUu","pVANu","pSUVu","My","Mn","By","Bn","SiteID","Name","Location","Comments","Date","End","Ver"';
+	var emailBody = gTitle;
 	var localstro = "";
 	for (var i = 0; i < localStorage.length; i++){
 		localstor = localStorage.getItem(localStorage.key(i));
@@ -191,7 +202,7 @@ function editSite(){
         var storedData = JSON.parse(strValue);
 	    
 	    //populate count data
-	 	for (var i = 200; i < 230; i++) {
+	 	for (var i = 0; i < 30; i++) {
 			//alert(document.getElementById(i.toString()).innerHTML);
 			$('#' + i).html(storedData[i]); //not innerHTML?
     	}
@@ -222,7 +233,7 @@ function getCounts() {
 	var myID = "0"; 
 	//loop through each button and get count
 	
-    for (var i = 200; i < 230; i++) {
+    for (var i = 0; i < 30; i++) {
 		//alert(document.getElementById(i.toString()).innerHTML);
 		myID = '#' + i;
 		MyValues[i] = $(myID).html(); //document.getElementById(i.toString()).innerHTML;
@@ -250,7 +261,7 @@ function getID() {
 function createNewSite() {
   
    	//clear all data
-    for (var i = 200; i < 230; i++) {
+    for (var i = 0; i < 30; i++) {
 		//alert(document.getElementById(i.toString()).innerHTML);
 		document.getElementById(i.toString()).innerHTML=0;
 		//$('#' + i.toString).html(0); //doesnt work???
@@ -324,7 +335,7 @@ function exportToCSV() {
 	
 	// prepare CSV data
 	var csvData = new Array();
-	csvData.push('"dPCy","dPCn","dPUy","dPUn","dVANy","dVANn","dSUVy","dSUVn","pPCy","pPCn","pPUy","pPUn","pVANy","pVANn","pSUVy","pSUVn","dPCu","dPUu","dVANu","dSUVu","pPCu","pPUu","pVANu","pSUVu","My","Mn","By","Bn","SiteID","Name","Location","Comments","Date","End","Ver"');
+	csvData.push(gTitle);
 	
 	for (var i = 0; i < localStorage.length; i++){
 	var str = localStorage.getItem(localStorage.key(i));
@@ -389,3 +400,103 @@ function changeBack() {
 	document.body.style.background = "white";
 }
 
+function IDtoName(ID)
+{
+	switch(ID)
+	{
+		case 0:
+		myUndo="Driver PC Yes";
+		break;
+		case 1:
+		myUndo="Driver PC No";
+		break;
+		case 2:
+		myUndo="Driver PC Unknown";
+		break;
+		case 3:
+		myUndo="Driver PU Yes";
+		break;
+		case 4:
+		myUndo="Driver PU No";
+		break;
+		case 5:
+		myUndo="Driver PU Unknown";
+		break;
+		case 6:
+		myUndo="Driver VAN Yes";
+		break;
+		case 7:
+		myUndo="Driver VAN No";
+		break;
+		case 8:
+		myUndo="Driver VAN Unknown";
+		break;
+		case 9:
+		myUndo="Driver SUV Yes";
+		break;
+		case 10:
+		myUndo="Driver SUV No";
+		break;
+		case 11:
+		myUndo="Driver SUV Unknown";
+		break;
+		case 12:
+		myUndo="Passenger PC Yes";
+		break;
+		case 13:
+		myUndo="Passenger PC No";
+		break;
+		case 14:
+		myUndo="Passenger PC Unknown";
+		break;
+		case 15:
+		myUndo="Passenger PU Yes";
+		break;
+		case 16:
+		myUndo="Passenger PU No";
+		break;
+		case 17:
+		myUndo="Passenger PU Unknown";
+		break;
+		case 18:
+		myUndo="Passenger VAN Yes";
+		break;
+		case 19:
+		myUndo="Passenger VAN No";
+		break;
+		case 20:
+		myUndo="Passenger VAN Unknown";
+		break;
+		case 21:
+		myUndo="Passenger SUV Yes";
+		break;
+		case 22:
+		myUndo="Passenger SUV No";
+		break;
+		case 23:
+		myUndo="Passenger SUV Unknown";
+		break;
+		case 24:
+		myUndo="Motorcycle Yes";
+		break;
+		case 25:
+		myUndo="Motorcycle No";
+		break;
+		case 26:
+		myUndo="Motorcycle Unknown";
+		break;
+		case 27:
+		myUndo="Bike Yes";
+		break;
+		case 28:
+		myUndo="Bike No";
+		break;
+		case 29:
+		myUndo="Bike Unknown";
+		break;
+		default:
+		myUndo = "";
+	}
+
+	return myUndo;
+}

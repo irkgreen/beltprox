@@ -4,14 +4,18 @@ beltprox
 Resources:
 -http://diveintohtml5.info/storage.html
 
+Staged:
+
 Essential:
+-try changing color alternatively with each click
+-reset undo back to default on new and edit
+-save last 10 undos?
 -test app cache
 --add check or a way to forcibly get the latest version.  This could happen every time the user uploads
 --force users to run: chrome://appcache-internals/ or similar
 -make sound on click (buffering) or clean up background color event (buggy)
--make the table hollow so that flash is seen
--design for portrait
-make look iOS-ey - boot strap
+-design for portrait or landscape
+-make look iOS-ey - boot strap
 
 Would-be-nice:
 -start timer, shows countdown on table?
@@ -21,9 +25,7 @@ Would-be-nice:
 -Test running app from springboard
 -Add favicon for icon on springboard
 -Hide title bar
--need to remove motorcycle/bike unknowns in local storage or export (KY doesn’t use this – probably easier to remove in KTC’s import)
--change date to number when stored in key (currently a very long string)
--title row for CSV is set in two places – should be a global variable
+-change date to number when stored in key (currently a very long string) - maybe okay
 -email not sent on desktop during upload. We should check and use another method for debugging
 -Use a picture for vehicle types and seat
 -disable copy/paste

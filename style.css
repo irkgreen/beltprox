@@ -4,12 +4,11 @@ table
   width: auto;
   padding: 0; 
   margin: 0 auto; 
-  background: #EEE; 
   color: #000; 
   border: 3px solid #0567FA;
   border-radius: 5px;
-	border-spacing: 0;
-	border-collapse:collapse;
+  border-spacing: 0;
+  border-collapse:collapse;
 }
 
 #myDataTable td {
@@ -39,33 +38,18 @@ td span {
 	overflow: hidden;
 }
 
-.IncremBtn, .DecremBtn {
+.IncremBtn {
 width: 130px;
 height: 60px;
 border: none;
 margin: 0;
 padding: 0;
-}
-
-.IncremBtn {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b4e391), color-stop(50%,#61c419), color-stop(100%,#b4e391)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #b4e391 0%,#61c419 50%,#b4e391 100%); /* Chrome10+,Safari5.1+ */
-}
-
-.DecremBtn {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feccb1), color-stop(50%,#f17432), color-stop(51%,#ea5507), color-stop(100%,#fb955e)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #feccb1 0%,#f17432 50%,#ea5507 51%,#fb955e 100%); /* Chrome10+,Safari5.1+ */
-	width: 25px;
-	height: 60px;
-	visibility:hidden; 
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b4e391), color-stop(50%,#61c419), color-stop(100%,#b4e391)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #b4e391 0%,#61c419 50%,#b4e391 100%); /* Chrome10+,Safari5.1+ */
 }
 
 .colYes, .colNo, .colUnk {
 	width: 200px;
-}
-
-.colYes, .colUnk {
-	background: #ccc !important;
 }
 
 .colType{
