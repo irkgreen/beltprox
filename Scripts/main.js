@@ -220,7 +220,7 @@ function editSite(){
 	    document.forms["Site"]["mycomments"].value = storedData[33];
 	    document.forms["Site"]["mydate"].value = storedData[34];
 	    document.forms["Site"]["myend"].value = storedData[35];
-	     
+	    usageRate(); 
 }
 
 function removeSite(){
@@ -338,6 +338,8 @@ function stopData() {
 	//rehide table
    document.querySelector('#datatable').style.display = 'none';
    document.querySelector('#Site').style.display = 'block';
+   
+   usageRate();
    
   }
 
@@ -523,17 +525,19 @@ function IDtoName(ID)
 
 function usageRate()
 {
+	//stop at ID = 23 as 24-29 are motorcycle and bike
   var MyYes = 0;
-	for (var i = 0; i < 30; i+=3){
-	  MyYes = MyYes + parseInt($('#' + id).html());
+	for (var i = 0; i < 24; i+=3){
+	  MyYes = MyYes + parseInt($('#' + i).html());
 	}
   var MyNo = 0;
-	for (var i = 1; i < 30; i+=3){
-	  MyNo = MyNo + parseInt($('#' + id).html());
+	for (var i = 1; i < 24; i+=3){
+	  MyNo = MyNo + parseInt($('#' + i).html());
 	}
   var MyUnk = 0;
-	for (var i = 2; i < 30; i+=3){
-	  MyUkn = MyUkn + parseInt($('#' + id).html());
+	for (var i = 2; i < 24; i+=3){
+	  MyUnk = MyUnk + parseInt($('#' + i).html());
 	}
-alert(MyYes/(MyYes+MyNo);
+	
+	alert(MyYes / (MyYes + MyNo)*100);
 }

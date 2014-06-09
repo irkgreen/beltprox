@@ -7,6 +7,17 @@ Resources:
 Staged:
 
 Essential:
+
+New Site Button
+Make Upload button Send
+Make a clear button (with warnings)
+check if unknown is 10%
+try to disable select all
+make stop and clear red
+ver["36"], clean up 
+no LFeed in CSV
+
+
 -color buttons MISC (stop = red, undo = yellow)
 -add timer to bottom
 -test app cache
