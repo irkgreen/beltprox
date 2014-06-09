@@ -56,6 +56,16 @@ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b4e39
 background: -webkit-linear-gradient(top,  #b4e391 0%,#61c419 50%,#b4e391 100%); /* Chrome10+,Safari5.1+ */
 }
 
+.MISC2{
+width: 130px;
+height: 50px;
+border: none;
+margin: 0;
+padding: 0;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFFF00), color-stop(50%,#F7F8E0), color-stop(100%,#FFFF00)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #FFFF00 0%,#F7F8E0 50%,#FFFF00 100%); /* Chrome10+,Safari5.1+ */
+}
+
 .MISC{
 width: 130px;
 height: 50px;
@@ -64,6 +74,16 @@ margin: 0;
 padding: 0;
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b4e391), color-stop(50%,#61c419), color-stop(100%,#b4e391)); /* Chrome,Safari4+ */
 background: -webkit-linear-gradient(top,  #b4e391 0%,#61c419 50%,#b4e391 100%); /* Chrome10+,Safari5.1+ */
+}
+
+.Red{
+width: 130px;
+height: 50px;
+border: none;
+margin: 0;
+padding: 0;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DF0101), color-stop(50%,#F5A9A9), color-stop(100%,#DF0101)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #DF0101 0%,#F5A9A9 50%,#DF0101 100%); /* Chrome10+,Safari5.1+ */
 }
 
 .SiteData{

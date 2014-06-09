@@ -64,6 +64,11 @@ $(document).ready(function(){
       .click(function() {
         Upload();
       });
+      $("#Delete")
+      .button()
+      .click(function() {
+        clearData();
+      });
       $("#startData")
       .button()
       .click(function() {
@@ -120,9 +125,6 @@ function Upload(){
 		return false;
 	}
 	
-	//write to a backup file (timestamp)
-	exportToCSV();
-	
 	//check internet
 	
 	//loop through local storage and add to string
@@ -139,9 +141,26 @@ function Upload(){
 	window.location.href = "mailto:eric.green@uky.edu?subject=BeltProxUpload&body=" + emailBody;
 
 	//verify email
+
+	//console.log("here!");
+	//copy all data to clipboard
+
+}
+
+function clearData(){
 	
-	//ask user if they are sure
-	if (confirm('The data will be pasted into an email message.  Be sure to send this email right away.  The data will be deleted from the local storage.  Are you sure?  A backup will be temporarily available on this page.')) {
+		//check if data
+		  if (document.getElementById("previousData").length <= 0) {
+			alert("No data to remove.");
+			return false;
+		}
+	
+		//ask user if they are sure
+	if (confirm('Are you sure?  This will clear all collected data.  Only do this if the data has already been emailed AND entered!!!  A backup will be temporarily available on this page but should not be counted on.')) {
+		
+		//write to a backup file (timestamp)
+		exportToCSV();
+		
 		//remove all data from local storage and listbox
 	    localStorage.clear();
 		loadSites(); //this will verfify that the localstorage was cleared and clear the dropbown accordingly
@@ -150,10 +169,6 @@ function Upload(){
 	} else {
 	    // Do nothing!
 	}
-	
-	//console.log("here!");
-	//copy all data to clipboard
-
 }
 
 function loadSites(){
@@ -202,6 +217,12 @@ function saveSite(myVal){
 function editSite(){
 //this function saves the site in the event the user changes main form values
 
+		//check if selected
+		  if ($("#previousData > option:selected").length <= 0) {
+			alert("Please select a site.");
+			return false;
+		}
+
       	//load previous session and show table
       	var strKey = $('#previousData option:selected').val();
         var strValue = localStorage.getItem(strKey);
@@ -225,6 +246,12 @@ function editSite(){
 
 function removeSite(){
 //this function saves the site in the event the user changes main form values
+
+		//check if selected
+		  if ($("#previousData > option:selected").length <= 0) {
+			alert("Please select a site.");
+			return false;
+		}
 
       	//load previous session and show table
       	var strKey = $('#previousData option:selected').val();
@@ -539,5 +566,5 @@ function usageRate()
 	  MyUnk = MyUnk + parseInt($('#' + i).html());
 	}
 	
-	alert(MyYes / (MyYes + MyNo)*100);
+	//alert(MyYes / (MyYes + MyNo)*100);
 }

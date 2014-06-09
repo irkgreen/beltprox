@@ -17,7 +17,7 @@
 	<form id="Site">
   	BeltProx<br><br>
   	Please fill out the form below before starting data collection.<br>
-<button id="newSite" type='button'>Clear Form and Data (new site)</button><br>
+<button id="newSite" class='MISC' type='button'>New Site</button><br>
 <table id="myFormTable">
 	<tr><td>SiteID </td><td><input class='SiteData' type="text" id="mysiteID" name="mysiteID"></td></tr>
 	<tr><td>Name </td><td><input class='SiteData' type="text" id="myname" name="myname"></td></tr>
@@ -29,14 +29,16 @@
 	<tr><td>Unknown Rate </td><td><input class='SiteData' type="text" name="myunknown" readonly></td></tr>
 </table>
 
-<button id="startData" type='button'>Start/Edit Data</button>
+<button id="startData" class='MISC' type='button'>Start/Edit Data</button>
 <br><br>
 Collected Data:
 <br>
 <select id="previousData" size="0"> </select>
-<button id="editSite" type='button'>Edit Site</button>
-<button id="removeSite" type='button'>Remove Site</button>
-<button id="Upload" type='button'>Upload</button>
+<button id="editSite" class='MISC' type='button'>Edit Site</button>
+<button id="removeSite" class='MISC2' type='button'>Remove Site</button>
+<button id="Upload" class='MISC' type='button'>Email Data</button>
+<button id="Delete" type='button' class='Red'>Clear All Data!</button>
+
 </form>
   <div id="datatable" style="display:none">
   <table id="myDataTable">
@@ -126,15 +128,15 @@ Collected Data:
 		<td><button id="29" class='IncremBtn'>0</button></td>
     </tr>
 </table>
-    <button id="Stop" class='MISC' type='button'>Stop</button>
+    <button id="Stop" class='Red' type='button'>Stop</button>
     <span style="display:inline-block; width: 100px;"></span>
-    <button id="Undo" class='MISC' type='button' value="-1">Nothing to Undo</button>
+    <button id="Undo" class='MISC2' type='button' value="-1">Nothing to Undo</button>
     <span style="display:inline-block; width: 100px;"></span>
     Timer (coming soon)
   </div>
   
   <aside id="info">
-    <p>Belt Prox 1.017</p>
+    <p>Belt Prox 1.018</p>
   </aside>
   <span id="Backup"></span>
 </body>
