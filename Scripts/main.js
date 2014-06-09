@@ -520,3 +520,20 @@ function IDtoName(ID)
 
 	return myUndo;
 }
+
+function usageRate()
+{
+  var MyYes = 0
+	for (var i = 0; i < 30; i+=3){
+	  MyYes = MyYes + parseInt($('#' + id).html());
+	}
+  var MyNo = 0
+	for (var i = 1; i < 30; i+=3){
+	  MyNo = MyNo + parseInt($('#' + id).html());
+	}
+  var MyUnk = 0
+	for (var i = 2; i < 30; i+=3){
+	  MyUkn = MyUkn + parseInt($('#' + id).html());
+	}
+alert(MyYes/(MyYes+MyNo);
+}
