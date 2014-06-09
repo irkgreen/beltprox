@@ -7,8 +7,6 @@ Resources:
 Staged:
 
 Essential:
-check if unknown is 10%
-try to disable select all
 ver["36"], clean up 
 no LFeed in CSV
 

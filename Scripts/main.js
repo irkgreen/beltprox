@@ -308,6 +308,8 @@ function createNewSite() {
     document.getElementsByName("mycomments")[0].value = ""; // $('#mycomments').val();
     document.getElementsByName("mydate")[0].value = ""; // $('#mydate').val();
     document.getElementsByName("myend")[0].value = ""; // $('#myend').val();
+	document.getElementsByName("myusage")[0].value = ""; // $('#myend').val();
+	document.getElementsByName("myunknown")[0].value = ""; // $('#myend').val();
 
     document.getElementsByName("mysiteID")[0].disabled = false;
     document.getElementsByName("myname")[0].disabled = false;
@@ -566,5 +568,9 @@ function usageRate()
 	  MyUnk = MyUnk + parseInt($('#' + i).html());
 	}
 	
-	//alert(MyYes / (MyYes + MyNo)*100);
+	document.forms["Site"]["myusage"].value = round(MyYes / (MyYes + MyNo),3)*100; 
+	document.forms["Site"]["myunknown"].value = round(MyUnk / (MyUnk + MyYes + MyNo),3)*100; 
+}
+function round(value, decimals) {
+    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }

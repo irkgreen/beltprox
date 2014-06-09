@@ -16,7 +16,10 @@
   border-radius: 5px;
   border-spacing: 0;
   border-collapse:collapse;
-  -webkit-user-select: none; /* no copy and paste */
+  /* no copy and paste or select */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 
 #myDataTable td {
