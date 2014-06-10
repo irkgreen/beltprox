@@ -9,6 +9,8 @@ Staged:
 Essential:
 ver["36"], clean up 
 no LFeed in CSV
+edit buttons should be disabled upon edit
+fix dates (blank)
 
 -color buttons MISC (stop = red, undo = yellow)
 -add timer to bottom

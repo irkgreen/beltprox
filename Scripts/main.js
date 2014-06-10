@@ -242,6 +242,9 @@ function editSite(){
 	    document.forms["Site"]["mydate"].value = storedData[34];
 	    document.forms["Site"]["myend"].value = storedData[35];
 	    usageRate(); 
+	    
+	    document.getElementsByName("mysiteID")[0].disabled = true;
+	    document.getElementsByName("myname")[0].disabled = true;
 }
 
 function removeSite(){
