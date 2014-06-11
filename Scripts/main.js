@@ -1,7 +1,7 @@
 // here is a live demo of this code: http://www.ellipsetours.com/Demos/storage/
 
 //titlerow
-var gTitle='"dPCy","dPCn","dPCu","dPUy","dPUn","dPUu","dVANy","dVANn","dVANu","dSUVy","dSUVn","dSUVu","pPCy","pPCn","pPCu","pPUy","pPUn","pPUu","pVANy","pVANn","pVANu","pSUVy","pSUVn","pSUVu","My","Mn","Mu","By","Bn","Bu","SiteID","Name","Location","Comments","Date","End","Ver"';
+var gTitle='"dPCy","dPCn","dPCu","dPUy","dPUn","dPUu","dVANy","dVANn","dVANu","dSUVy","dSUVn","dSUVu","pPCy","pPCn","pPCu","pPUy","pPUn","pPUu","pVANy","pVANn","pVANu","pSUVy","pSUVn","pSUVu","My","Mn","Mu","By","Bn","Bu","ID","Observer","Location","Comment","Start","End","Ver"';
 
 $(document).ready(function(){
 	//this fires on load or when a button is pressed
@@ -234,7 +234,7 @@ function editSite(){
 			$('#' + i).html(storedData[i]); //not innerHTML?
     	}
 	    
-	    //populate site data
+	    //populate site data - "SiteID","Observer","Location","Comment","Start","End","Ver"
 	    document.forms["Site"]["mysiteID"].value = storedData[30];
     	document.forms["Site"]["myname"].value = storedData[31];
 	    document.forms["Site"]["mylocation"].value = storedData[32];
@@ -276,14 +276,14 @@ function getCounts() {
 		myID = '#' + i;
 		MyValues[i] = $(myID).html(); //document.getElementById(i.toString()).innerHTML;
     }
-    //add site info too
+    //add site info too - "SiteID","Observer","Location","Comment","Start","End","Ver"
     MyValues[30] = document.getElementsByName("mysiteID")[0].value; // this doesnt seem to work $("#mysiteID").val();
     MyValues[31] = document.getElementsByName("myname")[0].value; // $('#myname').val();
     MyValues[32] = document.getElementsByName("mylocation")[0].value; // $('#mylocation').val();
     MyValues[33] = document.getElementsByName("mycomments")[0].value; // $('#mycomments').val();
     MyValues[34] = document.getElementsByName("mydate")[0].value; // $('#mydate').val();
     MyValues[35] = document.getElementsByName("myend")[0].value; // $('#myend').val();
-    MyValues[36] = "ver 1.0";
+    MyValues[36] = "ver 1.1";
     return MyValues;
 }
 

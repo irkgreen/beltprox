@@ -6,11 +6,8 @@ Resources:
 
 Staged:
 
+
 Essential:
-ver["36"], clean up 
-no LFeed in CSV
-edit buttons should be disabled upon edit
-fix dates (blank)
 
 -color buttons MISC (stop = red, undo = yellow)
 -add timer to bottom
@@ -22,6 +19,8 @@ fix dates (blank)
 -make look iOS-ey - boot strap
 
 Would-be-nice:
+add linefeeds to CSV
+remove [ and ]'s (would need to change Eric's import program)
 -start timer, shows countdown on table?
 -add note to comments if user edits or stops early or edits a database - make uneditable?
 -Clean up workflow – the current site isn’t selected in the dropdown (counterintuitive)
