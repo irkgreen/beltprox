@@ -82,6 +82,11 @@ $(document).ready(function(){
       .keyup(function() {
       	saveSite($("#mylocation").val());
       });
+      $("#mysiteID") //autosave as the user types
+      .keyup(function() {
+      	document.title = $("#mysiteID").val();
+      });
+      
 	loadSites();
 	 
 });
@@ -256,6 +261,8 @@ function removeSite(){
 			return false;
 		}
 
+if (confirm('Are you sure you want to remove this site?')) {
+		
       	//load previous session and show table
       	var strKey = $('#previousData option:selected').val();
         var strValue = localStorage.removeItem(strKey);
@@ -263,7 +270,8 @@ function removeSite(){
         //location.reload(); a reload will clear backup!!
         loadSites();
     	createNewSite();  //clear form cache as we don't know which record they deleted
-	
+			
+	}
 }
 function getCounts() {
 	//this will store all data into an array

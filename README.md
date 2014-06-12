@@ -8,6 +8,12 @@ Staged:
 
 
 Essential:
+-change to lighter grey
+-test on high volume
+-why are blank dupes being created (ver 1.019)
+-date not showing in access
+-end date not saving to CSV
+
 
 -color buttons MISC (stop = red, undo = yellow)
 -add timer to bottom
