@@ -49,11 +49,6 @@ $(document).ready(function(){
       .click(function() {
         stopData();
       });
-     $("#editSite")
-      .button()
-      .click(function() {
-        editSite();
-      });
      $("#removeSite")
       .button()
       .click(function() {
@@ -202,6 +197,12 @@ function loadSites(){
 function saveSite(myVal){
 //this function saves the site in the event the user changes main form values
 
+		if(document.forms["Site"]["mydate"].value == "")
+		{
+			//no need to save yet as data hasn't started
+			return false;
+		}
+
 		//check for commas
 		if(myVal.indexOf(",") > -1)
 		{
@@ -219,7 +220,7 @@ function saveSite(myVal){
     	loadSites();
 }
 
-function editSite(){
+function OnChange(){
 //this function saves the site in the event the user changes main form values
 
 		//check if selected
@@ -449,7 +450,7 @@ function exportToCSV() {
 function changecolors() {
 	if (document.body.style.background == "")
 	{
-		document.body.style.background = "grey";
+		document.body.style.background = "#A9E2F3";
 	}
 	else 
 	{	

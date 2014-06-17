@@ -5,12 +5,14 @@ Resources:
 -http://diveintohtml5.info/storage.html
 
 Staged:
+-change to lighter grey
+-why are blank dupes being created (ver 1.019)
+
 
 
 Essential:
--change to lighter grey
+need to find a way to edit top combobox item if it is already selected
 -test on high volume
--why are blank dupes being created (ver 1.019)
 -date not showing in access
 -end date not saving to CSV
 
