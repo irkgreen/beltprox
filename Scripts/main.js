@@ -364,6 +364,10 @@ function startData() {
     //clear undo
     $('#Undo').val("-1");
     $('#Undo').html("Nothing to undo");
+    
+    //set title
+    document.title = $("#mysiteID").val();
+    
 }
 
 function stopData() {
